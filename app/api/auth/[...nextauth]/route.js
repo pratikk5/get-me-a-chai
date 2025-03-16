@@ -35,12 +35,16 @@ export const authoptions =  NextAuth({
     //     from: 'NextAuth.js <no-reply@example.com>'
     //   }),
     ],
+    pages: {
+      signIn: '/login',
+      error: '/login',
+    },
     callbacks: {
       async signIn({ user, account, profile, email, credentials }) {
          if(account.provider == "github") { 
           await connectDb()
           // Check if the user already exists in the database
-          const currentUser =  await User.findOne({email: email}) 
+          const currentUser =  await User.findOne({email: user.email}) 
           if(!currentUser){
             // Create a new user
              const newUser = await User.create({
@@ -57,6 +61,13 @@ export const authoptions =  NextAuth({
         session.user.name = dbUser.username
         return session
       },
+      async redirect({ url, baseUrl }) {
+        // Allows relative callback URLs
+        if (url.startsWith("/")) return `${baseUrl}${url}`
+        // Allows callback URLs on the same origin
+        else if (new URL(url).origin === baseUrl) return url
+        return baseUrl
+      }
     } 
   })
 
