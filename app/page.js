@@ -56,7 +56,11 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-center mb-14">Learn more about us</h2>
         {/* Responsive youtube embed  */}
         <div className="w-[90%] h-[40vh] md:w-[50%] md:h-[40vh] lg:w-[50%] lg:h-[40vh] xl:w-[50%] xl:h-[40vh]">
+<<<<<<< HEAD
           <iframe className="w-full h-full" src="https://www.youtube.com/embed/fNErv73YjQI?si=gcItx67mg1dDdaw8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+=======
+          <iframe className="w-full h-full" src="https://www.youtube.com/embed/ojuUnfqnUI0?si=wMUv4DG3ia6Wt4zn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+>>>>>>> 83c4a5188fa43092d8238bdd08eb719488a296ad
 
           </div>
       
